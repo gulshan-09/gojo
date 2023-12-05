@@ -4,30 +4,25 @@ const mongoose = require('mongoose');
 const jsonSchema = new mongoose.Schema({
     id: {
         type: String,
-        unique: true,
         required: true,
         trim: true,
     },
     title: {
         type: String,
-        unique: true,
         required: true,
         trim: true,
     },
     embed_title: {
         type: String,
-        unique: true,
         required: true,
         trim: true,
     },
     sposter: {
         type: String,
-        required: true,
         trim: true,
     },
     bposter: {
         type: String,
-        required: true,
         trim: true,
     },
     type: {
@@ -46,6 +41,14 @@ const jsonSchema = new mongoose.Schema({
         trim: true,
     },
     episodes: {
+        type: String,
+        required: true,
+        trim: true,
+    },dubbed: {
+        type: String,
+        required: true,
+        trim: true,
+    },subbed: {
         type: String,
         required: true,
         trim: true,
