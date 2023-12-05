@@ -4,13 +4,11 @@ const mongoose = require('mongoose');
 const downloadJson = new mongoose.Schema({
     id:{
         type: String,
-        unique: true,
         required: true,
         trim: true,
     },
     download_title:{
         type: String,
-        unique: true,
         required: true,
         trim: true,
     },
