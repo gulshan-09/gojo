@@ -3,9 +3,9 @@ const movieJson = require('../models/jsonSchema');
 // const moment = require('moment');
 
 exports.userpost = async(req, res)=> {
-    const {id, title, embed_title, sposter, bposter, type, duration, country, episodes, description, date, genre, status, premiered, language, studios, rating, producers} = req.body;
+    const {id, title, embed_title, sposter, bposter, type, duration, country, episodes, subtitle, dubbed, description, date, genre, status, premiered, language, studios, rating, producers} = req.body;
 
-    if(!id || !title || !embed_title || !sposter || !bposter || !type || !duration || !country || !episodes || !description || !date || !genre || !status || !premiered || !language || !studios || !rating || !producers){
+    if(!id || !title || !embed_title || !sposter || !bposter || !type || !duration || !country || !episodes || !subtitle || !dubbed || !description || !date || !genre || !status || !premiered || !language || !studios || !rating || !producers){
         res.status(400).json({error:"All input required."})
     }
 
@@ -17,7 +17,7 @@ exports.userpost = async(req, res)=> {
             res.status(400).json({error:"ID exist in database."})
         }else{
             const movieData = new movieJson({
-                id, title, embed_title, sposter, bposter, type, duration, country, episodes, description, date, genre, status, premiered, language, studios, rating, producers
+                id, title, embed_title, sposter, bposter, type, duration, country, episodes, subtitle, dubbed, description, date, genre, status, premiered, language, studios, rating, producers
             })
 
             await movieData.save();
@@ -139,12 +139,12 @@ exports.updatedata = async(req, res)=> {
 
     const {dataid} = req.params;
     
-    const {id, title, embed_title, sposter, bposter, type, duration, country, episodes, description, date, genre, status, premiered, language, studios, rating, producers} = req.body;
+    const {id, title, embed_title, sposter, bposter, type, duration, country, episodes, subtitle, dubbed,  description, date, genre, status, premiered, language, studios, rating, producers} = req.body;
 
     try {
 
         const updatedatabyid = await movieJson.findByIdAndUpdate({_id:dataid},{
-            id, title, embed_title, sposter, bposter, type, duration, country, episodes, description, date, genre, status, premiered, language, studios, rating, producers
+            id, title, embed_title, sposter, bposter, type, duration, country, episodes, subtitle, dubbed, description, date, genre, status, premiered, language, studios, rating, producers
         }, {new:true})
 
         await updatedatabyid.save()
