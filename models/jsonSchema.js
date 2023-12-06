@@ -44,11 +44,11 @@ const jsonSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-    },dubbed: {
+    },subtitle: {
         type: String,
         required: true,
         trim: true,
-    },subbed: {
+    },dubbed: {
         type: String,
         required: true,
         trim: true,
